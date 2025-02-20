@@ -38,6 +38,7 @@ authRouter.post("/signup", async (req, res) => {
 });
 
 authRouter.post("/login", async (req, res) => {
+  console.log(req.body);
   try {
     const { emailId, password } = req.body;
 
