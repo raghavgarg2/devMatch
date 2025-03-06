@@ -16,6 +16,7 @@ const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
   const [showToast, setShowToast] = useState(false);
 
+
   const saveProfile = async () => {
     //Clear Errors
     setError("");
@@ -39,6 +40,7 @@ const EditProfile = ({ user }) => {
       }, 3000);
     } catch (err) {
       setError(err.response.data);
+      console.log(err)
     }
   };
 
@@ -126,7 +128,9 @@ const EditProfile = ({ user }) => {
             </div>
           </div>
         </div>
-        <UserCard user={{ firstName, lastName, photoUrl, age, gender, about ,atHomePage : true}} />
+        <UserCard
+          user={{ firstName, lastName, photoUrl, age, gender, about,showButtons : false }}
+        />
       </div>
       {showToast && (
         <div className="toast toast-top toast-center">
@@ -139,4 +143,3 @@ const EditProfile = ({ user }) => {
   );
 };
 export default EditProfile;
-

@@ -17,7 +17,8 @@ const Feed = () => {
       });
       dispatch(addFeed(res?.data?.data));
     } catch (err) {
-      //TODO: handle error
+      console.log(err);
+
     }
   };
 
@@ -32,9 +33,14 @@ const Feed = () => {
   return (
     feed && (
       <div className="flex justify-center my-10">
-        <UserCard user={{ ...feed[0], atHomePage: false }} />
+        {/* <UserCard user={{ ...feed[0], atHomePage: false }} /> */}
+         {/* <UserCard user={feed[0]} /> */}
+
+       <UserCard user={{ ...feed[0], showButtons: true }} />
       </div>
     )
   );
 };
 export default Feed;
+
+
