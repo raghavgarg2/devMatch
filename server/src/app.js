@@ -54,7 +54,7 @@ const port = process.env.PORT || 4000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://dev-match-lfns.vercel.app"],
     credentials: true,
   })
 );
