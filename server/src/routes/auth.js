@@ -26,8 +26,15 @@ authRouter.post("/signup", async (req, res) => {
     const savedUser = await user.save();
     const token = await savedUser.getJWT();
 
+    // res.cookie("token", token, {
+    //   expires: new Date(Date.now() + 8 * 3600000),
+    // });
+
     res.cookie("token", token, {
       expires: new Date(Date.now() + 8 * 3600000),
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
     });
 
     res.json({ message: "User Added successfully!", data: savedUser });
@@ -50,9 +57,16 @@ authRouter.post("/login", async (req, res) => {
     if (isPasswordValid) {
       const token = await user.getJWT();
 
+      // res.cookie("token", token, {
+      //   expires: new Date(Date.now() + 8 * 3600000),
+      // });
       res.cookie("token", token, {
-        expires: new Date(Date.now() + 8 * 3600000),
+        expires: new Date(Date.now() + 8 * 3600000), // 8 hours
+        httpOnly: true, // Security ke liye
+        secure: true, // HTTPS ke liye (Localhost pe false rakho)
+        sameSite: "None", // Cross-origin requests ke liye required
       });
+
       res.send(user);
     } else {
       throw new Error("Invalid credentials");
@@ -63,9 +77,17 @@ authRouter.post("/login", async (req, res) => {
 });
 
 authRouter.post("/logout", async (req, res) => {
+  // res.cookie("token", null, {
+  //   expires: new Date(Date.now()),
+  // });
+
   res.cookie("token", null, {
-    expires: new Date(Date.now()),
+    expires: new Date(Date.now()), // 8 hours
+    httpOnly: true, // Security ke liye
+    secure: true, // HTTPS ke liye (Localhost pe false rakho)
+    sameSite: "None", // Cross-origin requests ke liye required
   });
+
   res.send("Logout Successful!!");
 });
 
