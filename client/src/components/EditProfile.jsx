@@ -4,6 +4,10 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+<<<<<<< HEAD
+=======
+import { Navigate, useNavigate } from "react-router-dom";
+>>>>>>> d2ec1b8 (fixing ui)
 
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
@@ -15,10 +19,20 @@ const EditProfile = ({ user }) => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const [showToast, setShowToast] = useState(false);
+<<<<<<< HEAD
 
 
   const saveProfile = async () => {
     //Clear Errors
+=======
+  const navigate = useNavigate();
+
+  
+
+
+  const saveProfile = async () => {
+    
+>>>>>>> d2ec1b8 (fixing ui)
     setError("");
     try {
       const res = await axios.patch(
@@ -37,7 +51,13 @@ const EditProfile = ({ user }) => {
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
+<<<<<<< HEAD
       }, 3000);
+=======
+        return navigate("/")
+      }, 500);
+      
+>>>>>>> d2ec1b8 (fixing ui)
     } catch (err) {
       setError(err.response.data);
       console.log(err)
@@ -50,7 +70,11 @@ const EditProfile = ({ user }) => {
         <div className="flex justify-center mx-10">
           <div className="card bg-base-300 w-96 shadow-xl">
             <div className="card-body">
+<<<<<<< HEAD
               <h2 className="card-title justify-center">Edit Profile</h2>
+=======
+              <h2 className="card-title justify-center">Profile</h2>
+>>>>>>> d2ec1b8 (fixing ui)
               <div>
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
@@ -97,6 +121,7 @@ const EditProfile = ({ user }) => {
                   />
                 </label>
                 <label className="form-control w-full max-w-xs my-2">
+<<<<<<< HEAD
                   <div className="label">
                     <span className="label-text">Gender:</span>
                   </div>
@@ -107,6 +132,23 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setGender(e.target.value)}
                   />
                 </label>
+=======
+  <div className="label">
+    <span className="label-text">Gender:</span>
+  </div>
+  <select
+    value={gender}
+    onChange={(e) => setGender(e.target.value)}
+    className="select select-bordered w-full max-w-xs"
+  >
+    <option value="" disabled>Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+  </select>
+</label>
+
+>>>>>>> d2ec1b8 (fixing ui)
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">About:</span>

@@ -6,8 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
+<<<<<<< HEAD
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
+=======
+  const [emailId, setEmailId] = useState("shashank@gmail.com");
+  const [password, setPassword] = useState("Eafgac@123");
+>>>>>>> d2ec1b8 (fixing ui)
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isLoginForm, setIsLoginForm] = useState(true);
@@ -127,3 +132,7 @@ const Login = () => {
   );
 };
 export default Login;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2ec1b8 (fixing ui)

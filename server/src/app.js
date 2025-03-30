@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const express = require("express");
 // const connectDB = require("./config/database");
 // const app = express();
@@ -41,6 +42,8 @@
 //     console.error("Database cannot be connected!!");
 //   });
 
+=======
+>>>>>>> d2ec1b8 (fixing ui)
 const express = require("express");
 const connectDB = require("./config/database");
 const app = express();
